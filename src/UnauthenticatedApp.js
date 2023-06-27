@@ -1,6 +1,7 @@
 import { Route, Routes, Navigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import LoginPage from "./pages/login-page";
+import SignUpPage from "./pages/signup-page";
 import { colors } from "./styles";
 
 const Container = styled.div`
@@ -19,7 +20,7 @@ export default function UnauthenticatedApp() {
         <Route path="/">
           <Route index element={<Navigate to="/login" replace={true} />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="signup" element={<p> Sign up</p>} />
+          <Route path="signup" element={<SignUpPage />} />
           <Route path="*" element={<Navigate to="/login" replace={true} />} />
         </Route>
       </Routes>

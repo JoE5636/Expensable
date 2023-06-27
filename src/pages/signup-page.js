@@ -70,7 +70,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export default function LoginPage() {
+export default function SignUpPage() {
   const { login } = useAuth();
 
   function handleSubmit(event) {
@@ -97,7 +97,7 @@ export default function LoginPage() {
         gap: "10px",
       }}
     >
-      <Title>Login</Title>
+      <Title>Sign Up</Title>
       <Form onSubmit={handleSubmit}>
         <div
           style={{
@@ -115,9 +115,33 @@ export default function LoginPage() {
           <Label htmlFor="password">Password</Label>
           <Input id="password" name="password" />
         </div>
-        <SubmitButton type="submit">Login</SubmitButton>
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <Label htmlFor="fisrtname">Firstname</Label>
+          <Input id="firstname" name="firstname" />
+        </div>
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <Label htmlFor="lastname">Lastname</Label>
+          <Input id="lastname" name="lastname" />
+        </div>
+        <div
+          style={{
+            width: "100%",
+          }}
+        >
+          <Label htmlFor="phone">phone</Label>
+          <Input id="phone" name="phone" />
+        </div>
+        <SubmitButton type="submit">Sign Up</SubmitButton>
       </Form>
-      <StyledNavLink to={"/signup"}> Sign Up</StyledNavLink>
+      <StyledNavLink to={"login"}>Login</StyledNavLink>
     </div>
   );
 }
