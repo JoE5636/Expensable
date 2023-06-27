@@ -5,13 +5,16 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { global, reset } from "./styles";
+import { AuthProvider } from "./context/auth-context";
 
 ReactDOM.render(
   <React.StrictMode>
     <Global styles={reset} />
     <Global styles={global} />
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")
