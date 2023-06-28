@@ -71,19 +71,24 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 export default function SignUpPage() {
-  const { login } = useAuth();
+  const { signup } = useAuth();
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const { email, password } = event.target.elements;
+    const { email, password, firstname, lastname, phone } =
+      event.target.elements;
 
-    const credentials = {
+    console.log(event.target.elements.email.value);
+
+    const newUser = {
       email: email.value,
       password: password.value,
+      fisrt_name: firstname.value,
+      last_name: lastname.value,
+      phone: phone.value,
     };
-
-    login(credentials).catch((error) => console.log(error));
+    signup(newUser).catch((error) => console.log(error));
   }
 
   return (

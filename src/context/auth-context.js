@@ -1,6 +1,6 @@
 import React from "react";
 
-import { getUser } from "../services/user-service";
+import { getUser, createUser } from "../services/user-service";
 import * as auth from "../services/session-service";
 
 const AuthContext = React.createContext();
@@ -23,6 +23,10 @@ function AuthProvider(props) {
     return auth.login(credentials).then((user) => setUser(user));
   }
 
+  function signup(newUser) {
+    return createUser(newUser).then((user) => setUser(user));
+  }
+
   function logout() {
     return auth.logout().then(() => setUser(null));
   }
@@ -30,7 +34,10 @@ function AuthProvider(props) {
   if (loading) return <p>Loading...</p>;
 
   return (
-    <AuthContext.Provider value={{ user, setUser, login, logout }} {...props} />
+    <AuthContext.Provider
+      value={{ user, setUser, login, logout, signup }}
+      {...props}
+    />
   );
 }
 
